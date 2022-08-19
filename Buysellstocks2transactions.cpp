@@ -27,13 +27,10 @@ using namespace std;
             profit=preprofit+postprofit;
 			maxprofit=max(maxprofit,profit);
         }
-        profit=prices[n-1]-pmin[n-2];
+        profit=smax[n-1]-pmin[n-2];
         if(profit>0)
             maxprofit=max(maxprofit,profit);
-        if(n==3){
-            profit=smax[1]-pmin[1];
-            maxprofit=max(profit,maxprofit);
-        }
+
         return maxprofit;       
     }
 int main() {

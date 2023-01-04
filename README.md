@@ -1,2 +1,2 @@
 # didactic-umbrella
-This repository contains solutions to quality problems asked in many coding interviews.
+Repository for solutions to quality coding problems asked by top companies!! 

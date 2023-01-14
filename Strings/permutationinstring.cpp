@@ -1,7 +1,7 @@
 //Leetcode 567
 /*Given two strings s1 and s2, print True if s2 contains a permutation of s1, or False otherwise.
 
-In other words, print True if one of s1’s permutations is the substring of s2.*/
+In other words, print True if one of s1â€™s permutations is the substring of s2.*/
 
 #include<iostream>
 using namespace std;

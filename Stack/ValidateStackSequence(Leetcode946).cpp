@@ -11,7 +11,12 @@ pop() -> 4,
 push(5),
 pop() -> 5, pop() -> 3, pop() -> 2, pop() -> 1
 */
-
+/*Approach:
+1: Maintain a stack st.
+2: Push the elements into st starting from 0
+3: Check if the stack's top is equal to the first element to be popped(for that we maintain iterator i, that iterates over popped),
+if yes, then pop that element and increment i.
+4: If in the end, all the elements get popped out and the stack gets empty, return true.*/
 
 class Solution {
 public:

@@ -8,6 +8,15 @@ Input: head = [3,2,0,-4], pos = 1
 Output: tail connects to node index 1
 Explanation: There is a cycle in the linked list, where tail connects to the second node.
 */
+/*Approach
+1: 2 pointers, slow and fast, slow increments by 1, while fast increments by 2
+2: Another pointer entry, that initially points to head
+3: When slow becomes equal to fast, and until slow doesn't become equal to entry, increment slow by 1 position and entry by 1 position.
+4: entry will now point to the answer, hence, return entry
+
+Complexity
+Time: O(N)
+Space: O(1)*/
 
 /**
  * Definition for singly-linked list.

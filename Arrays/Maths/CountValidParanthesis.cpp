@@ -11,6 +11,10 @@ Output
 2
 -1*/
 
+/*Approach used:
+Using the concept of Catalan numbers*/
+
+
 #include <iostream>
 using namespace std;
 int main() {
@@ -23,6 +27,11 @@ cat[0]=1;
 cat[1]=1;
 	
 //Example cat[2]: () () or (())	
+//Suppose for the first opening paranthesis there are j pairs inside it 
+//(n-1-j) pairs would be outside the first closed parantheses
+//Subtracting 1 pair for the first paranthesis and j pairs that have come inside the first pair of paranthesis
+//Total pairs possible would be: cat[i]+= (cat[j]*cat[i-1-j]) for different values of i and j
+	
 for(i=2;i<1001;i++){
 cat[i]=0;
 for(j=0;j<i;j++){

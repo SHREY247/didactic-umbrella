@@ -9,11 +9,11 @@ public:
             ans.push_back(v);
             return;
         }
-        //Case when we take nums[ind]
+        //Case when we take nums[ind] as a part of subset
         v.push_back(nums[ind]);
         helper(ind+1,nums,v,ans);
 
-        //Case where we don't consider nums[ind]
+        //Case where we don't consider nums[ind] as a part of subset
         v.pop_back();
         helper(ind+1,nums,v,ans);
     }

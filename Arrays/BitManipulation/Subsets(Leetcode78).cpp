@@ -7,7 +7,13 @@ Input: nums = [1,2,3]
 Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
 */
 
+/*Concept:
+Either the number at a particular index is accepted or rejected
+At a particular index idx:
+Corresponding to yes case, the bit is 1
+Corresponding to no case, the bit is 0*/
 /*
+
 Approach:
 1: Total number of subsets possible are 2^n for a set containing n elements
 2: Run a loop from index 0 uptil e where e is 2^n

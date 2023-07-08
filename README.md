@@ -9,6 +9,4 @@ https://contrib.rocks/image?repo=SHREY247/didactic-umbrella
 
 https://readme-jokes.vercel.app/api
 
-https://komarev.com/ghpvc/?username=SHREY247
-
 

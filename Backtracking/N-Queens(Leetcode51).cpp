@@ -29,14 +29,18 @@ private:
         return true;
     }
     void solveNQueens(int n, vector<vector<string>>& output, vector<string>& nQueens, int row){
+        //Base case: we reach the nth row, meaning we have already placed all queens successfully
         if(row == n){
             output.push_back(nQueens);
             return;
         }
+
         for(int col=0; col<n; col++){
+            //If it is safe to place queen at given row,col place and perform recursion to solve for next queen 
             if(isSafePlace(n, nQueens, row, col)){
                 nQueens[row][col] = 'Q';
                 solveNQueens(n, output, nQueens, row+1);
+                //Backtracking step: Pop the queen back 
                 nQueens[row][col] = '.';
             }
         }
@@ -45,6 +49,7 @@ public:
     vector<vector<string>> solveNQueens(int n) {
         vector<vector<string>> output;
         vector<string> nQueens(n , string(n, '.'));
+        //solve the problem starting from row=0
         solveNQueens(n, output, nQueens, 0);
         return output;
     }

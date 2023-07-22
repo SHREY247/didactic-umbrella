@@ -1,10 +1,12 @@
 // Counting sort: This is non - comparison based sorting algorithm, where we would be storing the cumulative frequency
 //of each element and then iterate over our actual array and place the elements at its deserving location and then update the cumulative frequencies
 
+//Time complexity: max(O(N), 0(max-min))
+
 #include <bits/stdc++.h>
 #include <string.h>
 using namespace std;
-#define RANGE 255
+#define RANGE 255             //The range of characters 
 
 
 void countSort(char arr[])

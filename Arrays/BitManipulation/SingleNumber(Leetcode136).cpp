@@ -3,7 +3,8 @@
 You must implement a solution with a linear runtime complexity and use only constant extra space.*/
 
 //Whenever we need to find some missing number we must use XOR
-//Only that element would remain in answer whose occurence was 1 time because XOR of 2 same numbers will result in 0
+//Only that element would remain in answer whose occurence was 1 time because XOR of 2 same numbers will result in 0 and 0^x = x
+
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {

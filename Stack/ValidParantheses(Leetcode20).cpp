@@ -21,7 +21,9 @@ public:
             else
             {
                 // checking if top element is opening parantheses
-                // of same kind as closing parantheses
+                // of same kind as closing parantheses, if yes then pop else return false
+                //Also, return false when no opening parantheses found
+                //In this case, stack would be empty
                 if(st.empty() or (st.top()=='(' and i!=')') or (st.top()=='{' and i!='}') or (st.top()=='[' and i!=']')) return false;
                 st.pop();
             }

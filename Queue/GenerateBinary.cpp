@@ -14,34 +14,33 @@ using namespace std;
 vector<string> generate(int N)
 {
 	// Your code here
-	vector<string> ans;
-	queue<string> q;
-	//Push smallest binary possible in the given range, which is definitely 1 into the queue
-	q.push("1");
-	int count=0;
-	int size=1;
-	while(count<N){
-	    string val = q.front();
-	    q.pop();
-	    //Push val into ans
-	    ans.push_back(val);
-	    count++;
-	
-	if(size<N){
-	    q.push(val + "0");
-	    size++;
-	}
-	
-	if(size<N){
-	    q.push(val+"1");
-	    size++;
-	}
+    vector<string>v;
 
-	}
-	
-	return ans;
-	
-	
+    queue<string>q;
+    //Push smallest binary number possible in the given range into the queue
+    q.push("1");
+    //Keep track of count how many numbers have been considered	
+    int count=0;
+
+    while(count<N){
+    //Store the front element of queue into variable x
+    string x=q.front();
+    //pop that element from the queue
+    q.pop();
+    //Increment the count
+    count++;
+     //Push into answer vector the binary representation
+    v.push_back(x);
+
+    //Attach 0 to x, push into queue, and generate further possible numbers  
+    // 1 0   represents 2	    
+    q.push(x+"0");
+   
+    //Similarly, attach 1 to x, push it into queue, and generate further possible numbers  
+    //1 1  represents 3	    
+    q.push(x+"1");
+}
+    return v;	
 }
 
 

@@ -10,13 +10,23 @@ Output: [5,4,3,2,1]
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        ListNode *curr=head,*prev=NULL,*nxt=NULL;
+        //curr points to the head of the linked list
+        //prev is used to point to the head of the linked list that has already been reversed
+        //Therefore, initially prev is initialized to 0
+        ListNode *curr=head,*prev=NULL,*tmp=NULL;
+        //Run the loop till curr is not null
         while(curr){
-            nxt=curr->next;
+            //Store the next node's address in tmp so that you don't loose the track of remaining list
+            tmp=curr->next;
+            //Make curr_next point to prev (Reversing)
             curr->next=prev;
+            //Update prev, the new prev would be equal to curr
             prev=curr;
-            curr=nxt;
+            //Update curr, the new curr would be head of linked list to be reversed
+            curr=tmp;
         }
+
+        //Return the head of updated linked list which would be equal to head
         return prev;
     }
 };

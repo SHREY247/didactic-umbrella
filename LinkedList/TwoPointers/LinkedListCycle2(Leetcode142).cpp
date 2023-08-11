@@ -8,6 +8,17 @@ Input: head = [3,2,0,-4], pos = 1
 Output: tail connects to node index 1
 Explanation: There is a cycle in the linked list, where tail connects to the second node.
 */
+# Approach
+1: Let the length of linear part of linked list be l1
+2: Let the part of cycle part of linked list be l2
+3: Let the distance between first node of the cycle and the node where slow and fast pointer become equal be x
+4: Using the fact, distance travelled by fast pointer = 2* dist travelled by slow pointer
+5: l1 + (a)l2 + x = 2* (l1 + b.l2 + d)
+6: On solving the equation we get, l1+x is a multiple of l2
+7: This means (l1 + x) % l2 ==0
+8: The point where this condition is getting satisfied is the first node of the cycle, because at the time head reaches first node of the cycle it would have taken l1 steps and also the pointer at the meeting point is also moving at same speed so, it would also have taken l1 steps. From the 7th point we know that, (l1+x) is a multiple of l2, and slow pointer starts from x, therefore they would meet at the first node only where (l1 + x) would be surely divisible by l2.
+They can't meet before because head can't enter the cycle before taking l1 steps.
+    
 /*Complexity
 Time: O(N)
 Space: O(1)*/

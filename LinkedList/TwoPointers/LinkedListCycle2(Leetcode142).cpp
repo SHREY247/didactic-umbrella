@@ -8,13 +8,7 @@ Input: head = [3,2,0,-4], pos = 1
 Output: tail connects to node index 1
 Explanation: There is a cycle in the linked list, where tail connects to the second node.
 */
-/*Approach
-1: 2 pointers, slow and fast, slow increments by 1, while fast increments by 2
-2: Another pointer entry, that initially points to head
-3: When slow becomes equal to fast, and until slow doesn't become equal to entry, increment slow by 1 position and entry by 1 position.
-4: entry will now point to the answer, hence, return entry
-
-Complexity
+/*Complexity
 Time: O(N)
 Space: O(1)*/
 
@@ -29,27 +23,45 @@ Space: O(1)*/
  *     }
  * }
  */
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
 class Solution {
-    public:
-    ListNode* detectCycle(ListNode *head) {
-        if (head == NULL || head->next == NULL)
-            return NULL;
-
-        ListNode *slow  = head;
-        ListNode *fast  = head;
-        ListNode *entry = head;
-
-        while (fast->next && fast->next->next) {
-            slow = slow->next;
+public:
+    ListNode *detectCycle(ListNode *head) {
+        if(!head || !head->next) return nullptr;
+        ListNode* slow = head;
+        ListNode* fast = head;
+        int flag = 0;
+        while(fast && fast->next){
+            slow = slow ->next;
             fast = fast->next->next;
-            if (slow == fast) {                      // there is a cycle
-                while(slow != entry) {               // found the entry location
-                    slow  = slow->next;
-                    entry = entry->next;
-                }
-                return entry;
+            //If slow and fast pointers ever become equal, cycle surely exists
+            if(slow == fast){
+                flag = 1;
+                break;
             }
         }
-        return NULL;                                 // there has no cycle
+
+        //If flas is 0, no cyce exists return NULL
+        if(!flag) return nullptr;
+
+
+        //slow pointer points to the node where both slow and fast pointers meet
+        //Run the loop until slow doesn't become equal to head and jump by 1 node from both the pointers
+        //The pointers would meet at first node of the cycle
+        while(head != slow){
+            head = head->next;
+            slow = slow->next; 
+        }
+        return head;
     }
 };

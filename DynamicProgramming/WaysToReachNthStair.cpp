@@ -64,3 +64,60 @@ int main()
 }
 
 // } Driver Code Ends
+
+
+
+/*
+
+//{ Driver Code Starts
+#include<bits/stdc++.h>
+using namespace std;
+
+// } Driver Code Ends
+class Solution
+{   
+    //Bottom Up approach
+    public:
+    //Function to count number of ways to reach the nth stair.
+    int countWays(int n)
+    {
+        // your code here
+        //f represents 
+        long a=1,b=2;   //if only 1 stair only 1 way possible
+        //if 2 stairs then 2 ways possible to reach, (1 &1) steps or 2 steps
+        
+        if(n==1){
+            return 1;
+        }
+        
+        for(int i=3;i<=n;i++){
+            int curr=(a+b)%1000000007 ;
+            a=b;
+            b=curr;
+        }
+        
+        return b%1000000007;
+    }
+};
+
+
+
+//{ Driver Code Starts.
+int main()
+{
+    //taking total testcases
+    int t;
+    cin >> t;
+    while(t--)
+    {
+        //taking stair count
+        int m;
+        cin>>m;
+        Solution ob;
+        cout<<ob.countWays(m)<<endl; // Print the output from our pre computed array
+    }
+    return 0;
+}
+
+// } Driver Code Ends
+*/

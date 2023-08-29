@@ -52,3 +52,58 @@ public:
         return helper(s, 0, dp);      
     }
 };
+
+/* Bottom Top approach
+
+class Solution {
+public:
+    bool isValid(int code, int len){
+            //If length of code is 1, it must be between 1 and 9
+            if(len==1){
+                return code>=1 && code<=9;
+            }
+
+            //If len is 2, code must be between 10 and 26
+            return code>=10 && code<=26;
+        }
+    int numDecodings(string s) {
+        int n=s.size();
+        int f=isValid(s[0]-'0',1)?1:0;
+
+        //If length of string is 1,  return f that would return 1 if character was valid
+        if(n==1){
+            return f;
+        }
+
+        int s1=0;
+
+        //If code of length 1 is valid at the next index too, add f to s 
+        if(isValid(s[1]-'0',1)){
+            s1+=f;
+        }
+
+        //Now, check for code of length 2
+        if(isValid((s[0]-'0')*10+(s[1]-'0'),2)){
+            s1++;
+        }
+
+        for(int i=2;i<n;i++){
+            int curr=0;
+            //Check for code of length 1, and add contribution if valid
+            if(isValid(s[i]-'0',1)){
+                curr+=s1;
+            }
+
+            //Check for code of length 2, and add contribution if valid
+            if(isValid((s[i-1]-'0')*10+(s[i]-'0'),2)){
+                curr+=f;
+            }
+            f=s1;
+            s1=curr;
+        }
+        return s1;
+            
+        
+    }
+};
+*/

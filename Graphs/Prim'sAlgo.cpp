@@ -1,14 +1,16 @@
 //Prim's Algo for minimum spanning tree (Also a greedy algo)
 //Always start with single node and choose next nodes based on their weights
 
-//We maintain two sets
-//First set contains vertices that are already included in the Minimum Spanning Tree
-//Second set contains vertices not yet included
-
+//We maintain a priority queue
+//Used to efficiently compute the edges with minimum weights
 /*
-At every step, it considers all the edges that connect the two sets and picks the minimum weight edge from these edges. 
-After picking the edge, it moves the other endpoint of the edge to the set containing MST. */
-
+We transform the adjacency matrix into adjacency list using ArrayList<ArrayList<Integer>>.
+Then we create a Pair class to store the vertex and its weight .
+We sort the list on the basis of lowest weight.
+We create priority queue and push the first vertex and its weight in the queue
+Then we just traverse through its edges and store the least weight in a variable called ans.
+At last after all the vertex we return the ans.
+*/
 
 
 #include<bits/stdc++.h>

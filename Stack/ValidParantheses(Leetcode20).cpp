@@ -7,6 +7,9 @@ Every close bracket has a corresponding open bracket of the same type.
 Example:
 Input: s = "()"
 Output: true
+
+Time Complexity: O(N)
+Space Complexity: O(N)
 */
 
 class Solution {

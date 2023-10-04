@@ -3,13 +3,24 @@ You are given the heads of two sorted linked lists list1 and list2.
 Merge the two lists into one sorted list. The list should be made by splicing together the nodes of the first two lists.
 Return the head of the merged linked list.
 
+Intuition
+Iterate through both lists, comparing the values of the nodes, and appends the smaller value to the merged list. Continue this process until one of the input lists is completely traversed. Finally, if one list has remaining elements,append them to the merged list.
+
+Approach
+1: Initialize two pointers fh and ft to NULL which represent the head and tail of the final merged linked list.
+2: Check for edge cases where one of the input lists is empty. If one is empty, return the other list.
+3: While both input lists are not empty, compare the values of the nodes at the heads of the two lists.
+4: If fh and ft are both NULL, set them to point to the smaller value's node.
+5: Otherwise, append the smaller value's node to the merged list, updating ft.
+6: If one of the lists is not fully traversed, append the remaining elements to the merged list.
+7: Return the head of the merged list (fh).
+
 Complexity
 Time complexity:
-O(n+m)
+O(M+N)
 
 Space complexity:
-O(1)
-*/
+O(1)*/
 
 /**
  * Definition for singly-linked list.
@@ -81,5 +92,4 @@ public:
     return fh;
     }
 };
-
 
